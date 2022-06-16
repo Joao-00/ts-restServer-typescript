@@ -1,4 +1,5 @@
 import express, {Application} from 'express';
+import userRoutes from '../routes/usuario';
 
 
 //tambien se puede exportar colocando el export al principio de la clase (export class Server{})
@@ -6,11 +7,22 @@ class Server {
 
     private app: Application;
     private port: string;
+    private apiPaths = {
+        usuarios: '/api/usuarios'
+    }
 
 
     constructor() {
         this.app = express();
         this.port = process.env.PORT || '8000';
+
+        //definir mis rutas
+        this.routes();
+    }
+
+
+    routes(){
+        this.app.use(this.apiPaths.usuarios, userRoutes)
     }
 
 
