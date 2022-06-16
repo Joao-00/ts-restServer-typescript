@@ -2,7 +2,10 @@
 
 npm i -g typescript
 ./node_modules/.bin/tslint --init
+
+las instalaciones en typescript
 npm i --save-dev @types/express
+npm i --save-dev @types/cors
 
 para correr la app
 tsc
