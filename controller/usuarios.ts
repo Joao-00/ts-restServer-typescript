@@ -29,14 +29,21 @@ export const getUsuario = async (req: Request, res: Response) => {
 
 }
 
-export const postUsuario = (req: Request, res: Response) => {
+export const postUsuario = async ( req: Request, res: Response ) => {
+    
+    const { body } = req;
 
-    const {body} = req;
+    try {
+        const usuario = new Usuario( body );
+        await usuario.save();
 
-    res.json({
-        msg: 'postUsuarios',
-        body
-    });
+        res.json( usuario );
+    } catch ( error ) {
+        console.log( error );
+        res.status( 500 ).json({
+            msg:'Hable con el administrador'
+        });
+    }
 
 }
 
