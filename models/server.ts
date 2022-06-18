@@ -29,7 +29,9 @@ class Server {
             await db.authenticate();
             console.log('Database online');
         } catch (error) {
-            throw new Error( error );
+            console.log(error);
+            // throw new Error( error );
+            //error al no encontrar la variable
         }
     }
     
