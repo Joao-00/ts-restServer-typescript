@@ -1,6 +1,7 @@
 import express, {Application} from 'express';
 import userRoutes from '../routes/usuario';
 import cors from 'cors';
+
 import db from '../db/connection';
 
 //tambien se puede exportar colocando el export al principio de la clase (export class Server{})
